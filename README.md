@@ -32,7 +32,7 @@ The main objective of Learn Hub is to provide a simple and efficient online lear
 ---
 
 ## 👨‍💻 Developed By
-Farhad QAMBRAN Ahmed
+Farhad Ahmed QAMBRAN
 
 ---
 
