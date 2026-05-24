@@ -1,0 +1,31 @@
+﻿@model OnlineTutorBookingSystem.Models.TutorProfile
+
+@{
+    ViewData["Title"] = "Tutor Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2>Welcome, @ViewBag.UserName</h2>
+
+        @if (Model == null)
+        {
+            <p>You have not created your tutor profile yet.</p>
+            <a href="/Tutor/CreateProfile" class="btn btn-primary">Create Profile</a>
+        }
+        else
+        {
+            <h4>Your Tutor Profile</h4>
+            <p><strong>Subject:</strong> @Model.Subject.SubjectName</p>
+            <p><strong>Rate:</strong> Rs. @Model.HourlyRate / hour</p>
+            <p><strong>Experience:</strong> @Model.Experience</p>
+            <p><strong>Availability:</strong> @Model.Availability</p>
+            <p><strong>Bio:</strong> @Model.Bio</p>
+
+            <a href="/Tutor/EditProfile/@Model.TutorProfileId" class="btn btn-warning">Edit Profile</a>
+            <a href="/Tutor/BookingRequests" class="btn btn-info">Booking Requests</a>
+        }
+
+        <a href="/Account/Logout" class="btn btn-danger mt-3">Logout</a>
+    </div>
+</div>

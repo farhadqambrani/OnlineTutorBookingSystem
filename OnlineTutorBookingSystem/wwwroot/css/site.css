@@ -1,0 +1,111 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+:root{
+  --primary:#0b76d1;
+  --primary-600:#0b5ed7;
+  --accent:#ff6b6b;
+  --muted:#6b7a89;
+  --bg:#f8fbff;
+  /* Theme base (site background color) */
+  --theme-base: #ba9e93;
+  --theme-50: #fff9f7;
+  --theme-200: rgba(186,158,147,0.65);
+}
+
+body{
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  /* Modern soft gradient using #ba9e93 as the core tone */
+  background-color: var(--theme-base);
+  background: linear-gradient(135deg, var(--theme-50) 0%, var(--theme-200) 40%, var(--theme-base) 100%);
+  background-attachment: fixed;
+  color: #222;
+}
+
+/* Navbar */
+.navbar-custom{ background: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(30,40,60,0.04); backdrop-filter: blur(6px) }
+.brand-logo{
+  /* keep the image element small in layout, but visually enlarge it with transform
+     so surrounding borders/padding aren't increased */
+  height:48px;
+  width:auto;
+  object-fit:contain;
+  transform: scale(1.8);
+  transform-origin: left center;
+}
+.brand-text{ font-weight:700; color:var(--accent); font-size:1.05rem }
+
+.navbar .nav-link{ color:#263241; margin-right:0.35rem }
+.navbar .nav-link:hover{ color:var(--primary) }
+
+/* Hero landing */
+.hero-landing{
+  background: linear-gradient(180deg, rgba(250,244,242,1) 0%, rgba(243,229,225,0.9) 40%, rgba(186,158,147,0.6) 100%);
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+.hero-title{ font-size:3.6rem; font-weight:800; color:#111; letter-spacing:-1px }
+
+/* Search pill */
+.search-pill{ max-width:900px; background: rgba(255,255,255,0.85); border-radius:66px; padding:8px; margin:0 auto; border:1px solid rgba(15,30,60,0.04); box-shadow: 0 10px 30px rgba(11,27,56,0.06); }
+.search-input{ border:0; padding:18px 20px; border-radius:50px; box-shadow:none }
+.search-input:focus{ outline: none; box-shadow:none }
+.btn-search{ background:var(--accent); color:white; border-radius:50px; padding:10px 28px; border:none }
+.search-icon{ color:var(--accent); font-size:1.15rem; margin-left:12px }
+
+/* categories */
+.categories-pill{ max-width:1100px; background: rgba(255,255,255,0.85); border-radius:40px; padding:12px 18px; margin:0 auto; box-shadow:0 6px 24px rgba(16,24,40,0.04) }
+.categories-scroll{ gap:18px; overflow-x:auto; padding-bottom:6px }
+.category-item{ min-width:110px; padding:8px 12px; transition: transform .18s ease, box-shadow .18s ease; }
+.category-item:hover{ transform: translateY(-6px); box-shadow:0 8px 20px rgba(11,27,56,0.06) }
+.cat-icon{ font-size:1.5rem; color:var(--primary) }
+.cat-label{ font-size:0.95rem; color:var(--muted); margin-top:6px }
+.btn-circle{ width:46px; height:46px; border-radius:50%; background:white; border:0; box-shadow:0 6px 18px rgba(16,16,40,0.06) }
+
+/* Tutor cards */
+.card-tutor{ border-radius:12px; box-shadow:0 8px 24px rgba(20,30,60,0.06); overflow:hidden; padding:18px; transition: transform .18s ease, box-shadow .18s ease; background: rgba(255,255,255,0.86); }
+.card-tutor:hover{ transform: translateY(-6px); box-shadow:0 16px 40px rgba(20,30,60,0.12) }
+.card-tutor .avatar-lg{ width:72px; height:72px; object-fit:cover }
+.tag{ background: rgba(11,118,209,0.08); color:var(--primary); padding:6px 10px; border-radius:999px; font-weight:600 }
+
+/* Tutor list */
+.list-group-item{ border:0; border-radius:12px; margin-bottom:12px; padding:18px; background: rgba(255,255,255,0.85) }
+.list-group-item + .list-group-item{ margin-top:12px }
+
+/* Buttons */
+.btn-primary, .btn-outline-primary{ border-radius:8px }
+
+/* Student dashboard */
+.dashboard{ background: rgba(255,255,255,0.72); padding:24px; border-radius:12px; backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.45) }
+.dashboard .card{ border-radius:12px; background: rgba(255,255,255,0.85) }
+
+/* Footer */
+.footer-footer{ background: linear-gradient(90deg, rgba(140,109,101,0.95), rgba(186,158,147,1)); color:white }
+
+/* Responsive */
+@media (max-width: 767px){
+  .hero-title{ font-size:2rem }
+  .search-pill{ padding:6px }
+  .category-item{ min-width:90px }
+  .brand-text{ display:none }
+  /* keep logo smaller on narrow screens to avoid layout issues */
+  .brand-logo{
+    height:36px;
+    transform: scale(1);
+  }
+}
+
+/* Small helpers */
+.text-muted{ color:var(--muted) }
+
+/* Smooth transitions for links */
+a.nav-link, .btn{ transition: all .12s ease }

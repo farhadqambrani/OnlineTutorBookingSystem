@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LearnHub</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <img src="~/images/logo.svg" alt="LearnHub" class="brand-logo me-2" />
+                </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="/Student/Tutors">Find tutors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/Subjects">Subjects</a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/Home/About">About</a></li>
+                    <li class="nav-item ms-2 d-none d-lg-block"><a class="nav-link" href="/Account/Login">Log in</a></li>
+                    <li class="nav-item ms-2 d-none d-lg-block"><a class="btn btn-outline-primary" href="/Account/Register">Become a tutor</a></li>
+
+                    <li class="nav-item dropdown ms-3">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-2" style="font-size:1.35rem;color:rgba(38,50,65,0.8)"></i>
+                            <span class="d-none d-lg-inline">Account</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/Student/Dashboard"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/Account/Profile"><i class="bi bi-person me-2"></i>Profile</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="/Account/Logout"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @{
+        var ctrl = Context.Request.RouteValues["controller"]?.ToString() ?? "";
+        var act = Context.Request.RouteValues["action"]?.ToString() ?? "";
+    }
+
+    @if (string.Equals(ctrl, "Home", StringComparison.OrdinalIgnoreCase) &&
+         string.Equals(act, "Index", StringComparison.OrdinalIgnoreCase))
+    {
+        <header class="hero-landing">
+            <div class="container text-center py-5">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <h1 class="hero-title">Find the perfect tutor</h1>
+
+                        <div class="search-pill mx-auto mt-4">
+                            <div class="d-flex align-items-center w-100">
+                                <div class="search-icon ms-3">🔍</div>
+                                <input class="form-control search-input" placeholder="Try \"Oil painting\"" />
+                                <button class="btn btn-search">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="categories-pill mx-auto mt-4 d-flex align-items-center">
+                            <div class="categories-scroll d-flex">
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">📘</div>
+                                    <div class="cat-label">Quran</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">➗</div>
+                                    <div class="cat-label">Maths</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">🧪</div>
+                                    <div class="cat-label">Biology</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">📝</div>
+                                    <div class="cat-label">Urdu</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">⚗️</div>
+                                    <div class="cat-label">Chemistry</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">🗣️</div>
+                                    <div class="cat-label">English</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">🔬</div>
+                                    <div class="cat-label">Physics</div>
+                                </div>
+                                <div class="category-item text-center">
+                                    <div class="cat-icon">💻</div>
+                                    <div class="cat-label">Computer</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-circle ms-3">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    }
+
+    <main class="py-5">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="footer-footer py-4 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>© @DateTime.Now.Year LearnHub. All rights reserved.</div>
+            <div>
+                <a href="/Contact" class="text-white me-3">Contact</a>
+                <a href="/Privacy" class="text-white">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OnlineTutorBookingSystem.Models.Booking>
+
+@{
+    ViewData["Title"] = "Booking Requests";
+}
+
+<div class="container mt-4">
+    <h2>Booking Requests</h2>
+
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Student.FullName</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                    <td>@booking.BookingTime</td>
+                    <td>@booking.Message</td>
+                    <td>@booking.Status</td>
+                    <td>
+                        <a href="/Tutor/AcceptBooking/@booking.BookingId" class="btn btn-success btn-sm">Accept</a>
+                        <a href="/Tutor/RejectBooking/@booking.BookingId" class="btn btn-danger btn-sm">Reject</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Tutor/Dashboard" class="btn btn-secondary">Back</a>
+</div>

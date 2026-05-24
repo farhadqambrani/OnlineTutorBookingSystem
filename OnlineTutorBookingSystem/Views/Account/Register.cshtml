@@ -1,0 +1,48 @@
+﻿@model OnlineTutorBookingSystem.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4 col-md-6 mx-auto">
+        <h3 class="text-center mb-4">Create Account</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <form method="post">
+            <div class="mb-3">
+                <label>Full Name</label>
+                <input asp-for="FullName" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input asp-for="Email" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input asp-for="Password" type="password" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Register As</label>
+                <select asp-for="Role" class="form-control" required>
+                    <option value="">Select Role</option>
+                    <option value="Student">Student</option>
+                    <option value="Tutor">Tutor</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Register</button>
+
+            <p class="text-center mt-3">
+                Already have an account? <a href="/Account/Login">Login</a>
+            </p>
+        </form>
+    </div>
+</div>

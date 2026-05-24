@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Student Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2>Welcome, @ViewBag.UserName</h2>
+        <p>You can find tutors and book lessons from here.</p>
+
+        <a href="/Student/Tutors" class="btn btn-primary">View Tutors</a>
+        <a href="/Student/MyBookings" class="btn btn-info">My Bookings</a>
+        <a href="/Account/Logout" class="btn btn-danger">Logout</a>
+    </div>
+</div>

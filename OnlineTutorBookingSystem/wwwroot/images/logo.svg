@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="64" viewBox="0 0 280 64" role="img" aria-label="LearnHub logo">
+  <defs>
+    <linearGradient id="gBlue" x1="0" x2="1">
+      <stop offset="0" stop-color="#164D8A" />
+      <stop offset="1" stop-color="#0B76D1" />
+    </linearGradient>
+    <linearGradient id="gGold" x1="0" x2="1">
+      <stop offset="0" stop-color="#D4A33A" />
+      <stop offset="1" stop-color="#E7C46A" />
+    </linearGradient>
+    <filter id="fShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- emblem: open book + ascending arrow + star -->
+  <g transform="translate(8,4)" filter="url(#fShadow)">
+    <!-- book base -->
+    <path d="M12 40 L28 32 L44 40 L28 48 Z" fill="#fff" stroke="#dfe7ef" stroke-width="1" />
+    <!-- left page -->
+    <path d="M12 40 C18 30, 20 20, 28 20 L28 32 L12 40 Z" fill="url(#gBlue)" opacity="0.95" />
+    <!-- right page -->
+    <path d="M44 40 C38 30, 36 20, 28 20 L28 32 L44 40 Z" fill="url(#gGold)" opacity="0.95" />
+    <!-- arrow rising -->
+    <path d="M28 18 L36 10 L44 18" stroke="#0B76D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M28 20 L28 32" stroke="#0B76D1" stroke-width="3" stroke-linecap="round" />
+    <!-- small circle (person) -->
+    <circle cx="28" cy="8" r="6" fill="#FFD27A" stroke="#D4A33A" stroke-width="1" />
+    <!-- stars -->
+    <path d="M50 6 L52 9 L56 10 L52 11 L50 14 L48 11 L44 10 L48 9 Z" fill="#FFD27A" opacity="0.95" transform="translate(2,2) scale(0.45)" />
+  </g>
+
+  <!-- wordmark -->
+  <g transform="translate(80,18)">
+    <text x="0" y="12" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="26" fill="#0b2b5a">LEARN</text>
+    <text x="96" y="12" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="26" fill="url(#gGold)">HUB</text>
+    <text x="0" y="32" font-family="Poppins, Arial, sans-serif" font-weight="400" font-size="10" fill="#6b7a89">EMPOWERING MINDS</text>
+  </g>
+</svg>

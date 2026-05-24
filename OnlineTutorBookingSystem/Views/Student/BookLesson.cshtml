@@ -1,0 +1,38 @@
+﻿@model OnlineTutorBookingSystem.Models.Booking
+
+@{
+    ViewData["Title"] = "Book Lesson";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4 col-md-6 mx-auto">
+        <h3 class="mb-4">Book Lesson</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <form method="post">
+            <input type="hidden" asp-for="TutorProfileId" value="@ViewBag.TutorProfileId" />
+
+            <div class="mb-3">
+                <label>Booking Date</label>
+                <input asp-for="BookingDate" type="date" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Booking Time</label>
+                <input asp-for="BookingTime" class="form-control" placeholder="Example: 5:00 PM" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Message</label>
+                <textarea asp-for="Message" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            <a href="/Student/Tutors" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
+</div>

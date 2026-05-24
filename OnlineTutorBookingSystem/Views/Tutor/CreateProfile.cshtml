@@ -1,0 +1,62 @@
+﻿@model OnlineTutorBookingSystem.Models.TutorProfile
+
+@{
+    ViewData["Title"] = "Create Tutor Profile";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4 col-md-7 mx-auto">
+        <h3>Create Tutor Profile</h3>
+
+        <form method="post">
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach (var entry in ViewData.ModelState)
+                        {
+                            foreach (var err in entry.Value.Errors)
+                            {
+                                <li>@err.ErrorMessage</li>
+                            }
+                        }
+                    </ul>
+                </div>
+            }
+
+            <div class="mb-3">
+                <label>Subject</label>
+                <select asp-for="SubjectId" class="form-control" required>
+                    <option value="">Select Subject</option>
+                    @foreach (var subject in ViewBag.Subjects)
+                    {
+                        <option value="@subject.SubjectId">@subject.SubjectName</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Hourly Rate</label>
+                <input asp-for="HourlyRate" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Experience</label>
+                <input asp-for="Experience" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Availability</label>
+                <input asp-for="Availability" class="form-control" placeholder="Example: Mon-Fri 5PM-8PM" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Bio</label>
+                <textarea asp-for="Bio" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Profile</button>
+            <a href="/Tutor/Dashboard" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
+</div>
